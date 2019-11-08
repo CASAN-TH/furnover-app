@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar [class.show-background]="showToolbar">
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <ion-slides mode="ios" pager="ios" scrollbar="ios" [options]="slideOpts">
+    <ion-slide *ngFor="let ad of data.campaigns">
+      <img [src]="ad.cover_image" alt="">
+    </ion-slide>
+  </ion-slides>
+  <ion-row *ngFor="let shortcut of data.shortcuts">
+    <ion-col size="12">
+      <ion-label>{{shortcut.name}}</ion-label>
+    </ion-col>
+    <ion-col size="4" *ngFor="let act of shortcut.actions">
+      <img [src]="act.image" >
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let campaign of data.campaigns">
+    <ion-col size="12">
+        <ion-label>{{campaign.name}}</ion-label>
+    </ion-col>
+    <ion-col [size]="campaign.col_size" *ngFor="let item of campaign.products">
+      <img [src]="item.images[0]" >
+    </ion-col>
+  </ion-row>
+  
+</ion-content>

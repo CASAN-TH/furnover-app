@@ -1,0 +1,13 @@
+ion-toolbar {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+
+.show-background {
+    --background: #ffffff;
+    --ion-color-base: #ffffff !important;
+}
+
+ion-content {
+  --padding-top: -50px !important;
+}
