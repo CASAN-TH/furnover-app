@@ -1,5 +1,7 @@
 {
   "name": "furnover-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -11,7 +11,8 @@ import { HomeService } from './home.service';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: HomePage,
+    resolve: { data : HomeService}
   }
 ];
 

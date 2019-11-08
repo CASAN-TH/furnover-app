@@ -8,11 +8,46 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-
-      { path: 'home', loadChildren: '../home/home.module#HomePageModule' , resolve: { data : HomeService} },
-      { path: 'store', loadChildren: '../store/store.module#StorePageModule' },
-      { path: 'cart', loadChildren: '../cart/cart.module#CartPageModule' },
-      { path: 'account', loadChildren: '../account/account.module#AccountPageModule' },
+      {
+        path: 'home',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../home/home.module').then(m => m.HomePageModule)
+          }
+        ]
+      },
+      {
+        path: 'store',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../store/store.module').then(m => m.StorePageModule)
+          }
+        ]
+      },
+      {
+        path: 'cart',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../cart/cart.module').then(m => m.CartPageModule)
+          }
+        ]
+      },
+      {
+        path: 'account',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../account/account.module').then(m => m.AccountPageModule)
+          }
+        ]
+      },
       { path: '', redirectTo: '/tabs/home', pathMatch: 'full' }
     ]
   },
